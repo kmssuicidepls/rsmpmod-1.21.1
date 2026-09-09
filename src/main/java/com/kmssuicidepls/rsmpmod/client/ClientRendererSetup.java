@@ -1,6 +1,6 @@
 package com.kmssuicidepls.rsmpmod.client;
 
-import com.kmssuicidepls.europicamod.EuropicaMod; // adjust to your mod's actual main class/MODID holder
+import com.kmssuicidepls.rsmpmod.RsmpMod; // adjust to your mod's actual main class/MODID holder
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -11,7 +11,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
  * Registers TransparentPaintingRenderer in place of vanilla's PaintingRenderer.
  * Runs on the mod event bus, client side only.
  */
-@EventBusSubscriber(modid = rsmpmod.MOD_ID , bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = RsmpMod.MOD_ID , bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRendererSetup {
 
     @SubscribeEvent
