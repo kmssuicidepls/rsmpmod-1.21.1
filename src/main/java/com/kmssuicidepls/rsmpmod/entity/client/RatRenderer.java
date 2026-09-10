@@ -1,14 +1,27 @@
 package com.kmssuicidepls.rsmpmod.entity.client;
 
+import com.google.common.collect.Maps;
 import com.kmssuicidepls.rsmpmod.RsmpMod;
+import com.kmssuicidepls.rsmpmod.entity.RatVariant;
 import com.kmssuicidepls.rsmpmod.entity.custom.RatEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
+import java.util.Map;
+
 public class RatRenderer extends MobRenderer<RatEntity, RatModel<RatEntity>> {
+
+    private static final Map<RatVariant, ResourceLocation> LOCATION_BY_VARIANT =
+            Util.make(Maps.newEnumMap(RatVariant.class), map -> {
+                map.put(RatVariant.GREY,
+                        ResourceLocation.fromNamespaceAndPath(RsmpMod.MOD_ID, "textures/entity/rat/grey_rat.png"));
+                map.put(RatVariant.ALBINO,
+                        ResourceLocation.fromNamespaceAndPath(RsmpMod.MOD_ID, "textures/entity/rat/albino_rat.png"));
+            });
 
     public RatRenderer(EntityRendererProvider.Context context) {
         super(context, new RatModel<>(context.bakeLayer(RatModel.LAYER_LOCATION)), .25f);
@@ -16,7 +29,7 @@ public class RatRenderer extends MobRenderer<RatEntity, RatModel<RatEntity>> {
 
     @Override
     public ResourceLocation getTextureLocation(RatEntity entity) {
-        return ResourceLocation.fromNamespaceAndPath(RsmpMod.MOD_ID, "textures/entity/rat/rat.png");
+        return LOCATION_BY_VARIANT.get(entity.getVariant());
     }
 
     @Override

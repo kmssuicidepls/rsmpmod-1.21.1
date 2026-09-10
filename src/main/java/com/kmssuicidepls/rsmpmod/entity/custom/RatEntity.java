@@ -1,11 +1,15 @@
 package com.kmssuicidepls.rsmpmod.entity.custom;
 
 import com.kmssuicidepls.rsmpmod.entity.ModEntities;
+import com.kmssuicidepls.rsmpmod.entity.RatVariant;
+import net.minecraft.Util;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -14,12 +18,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
 public class RatEntity extends Animal {
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    private static final EntityDataAccessor<Integer> VARIANT =
+            SynchedEntityData.defineId(RatEntity.class, EntityDataSerializers.INT);
 
     public RatEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
@@ -40,7 +48,7 @@ public class RatEntity extends Animal {
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 5d)
-                .add(Attributes.MOVEMENT_SPEED, 1);
+                .add(Attributes.MOVEMENT_SPEED, .5);
     }
 
     @Override
@@ -49,10 +57,12 @@ public class RatEntity extends Animal {
     }
 
     @Override
-    public @Nullable AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return ModEntities.RAT.get().create(level());
+    public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob otherParent) {
+        RatVariant variant = Util.getRandom(RatVariant.values(), this.random);
+        RatEntity baby = ModEntities.RAT.get().create(level);
+        baby.setVariant(variant);
+        return baby;
     }
-
     private void setupAnimationStates() {
         if(this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = 20;
@@ -70,4 +80,44 @@ public class RatEntity extends Animal {
             this.setupAnimationStates();
         }
     }
+
+    /*VARIANTS*/
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(VARIANT, 0);
+    }
+
+    private int getTypeVariant() {
+        return this.entityData.get(VARIANT);
+    }
+
+    public RatVariant getVariant() {
+        return RatVariant.byId(this.getTypeVariant() & 255);
+    }
+
+    private void setVariant(RatVariant variant) {
+        this.entityData.set(VARIANT, variant.getId() & 255);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag compound) {
+        super.addAdditionalSaveData(compound);
+        compound.putInt("Variant", this.getTypeVariant());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag compound) {
+        super.readAdditionalSaveData(compound);
+        this.entityData.set(VARIANT, compound.getInt("Variant"));
+    }
+
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        RatVariant variant = RatVariant.getWeightedRandomVariant(this.random);
+        this.setVariant(variant);
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
 }
