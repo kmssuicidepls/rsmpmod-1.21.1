@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer": "rsmpmod:entity/rat"
+    "layer0": "rsmpmod:item/rat_egg2"
   }
 }

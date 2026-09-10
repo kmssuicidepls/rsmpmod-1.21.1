@@ -12,11 +12,11 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RsmpMod.MOD_ID);
 
 
-    public static final DeferredItem<Item> RAT_SPAWN_EGG = ITEMS.register("rat",
-            () -> new DeferredSpawnEggItem(ModEntities.RAT, 0x424854, 0xc05cae,
+    public static final DeferredItem<Item> RAT_SPAWN_EGG = ITEMS.register("rat_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.RAT, 0x424854, 0xff82e8,
                     new Item.Properties()));
 
-    public static void register(IEventBus eventBus) {
-        ITEMS.register(eventBus);
-    }
+public static void register(IEventBus eventBus) {
+    ITEMS.register(eventBus);
+}
 }

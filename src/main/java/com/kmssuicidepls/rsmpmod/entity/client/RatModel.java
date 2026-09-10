@@ -11,13 +11,16 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 public class RatModel<T extends RatEntity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(RsmpMod.MOD_ID, "rat"), "main");
     private final ModelPart controller;
+    private final ModelPart head;
 
     public RatModel(ModelPart root) {
         this.controller = root.getChild("controller");
+        this.head = this.controller.getChild("head");
     }
 
     public static LayerDefinition createBodyLayer() {
@@ -36,10 +39,14 @@ public class RatModel<T extends RatEntity> extends HierarchicalModel<T> {
 
         PartDefinition tail = controller.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 9).addBox(0.0F, -0.5F, 0.0F, 0.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.5F, 2.0F));
 
-        PartDefinition bb_main = partdefinition.addOrReplaceChild("bb_main", CubeListBuilder.create().texOffs(0, 0).addBox(-2.0F, -3.0F, -5.0F, 4.0F, 2.0F, 7.0F, new CubeDeformation(0.0F))
-                .texOffs(8, 9).addBox(-1.0F, -3.0F, -7.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F))
-                .texOffs(8, 15).addBox(1.0F, -4.0F, -6.0F, 0.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
-                .texOffs(10, 15).addBox(-1.0F, -4.0F, -6.0F, 0.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        PartDefinition head = controller.addOrReplaceChild("head", CubeListBuilder.create().texOffs(8, 9).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.0F, -6.0F));
+
+        PartDefinition ears = head.addOrReplaceChild("ears", CubeListBuilder.create().texOffs(8, 15).addBox(1.0F, -3.0F, 0.0F, 0.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+                .texOffs(10, 15).addBox(-1.0F, -3.0F, 0.0F, 0.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
+        PartDefinition bb_main = controller.addOrReplaceChild("bb_main", CubeListBuilder.create()
+                        .texOffs(0, 0).addBox(-2.0F, -3.0F, -5.0F, 4.0F, 2.0F, 7.0F, new CubeDeformation(0.0F)),
+                PartPose.offset(0.0F, 0.0F, 0.0F));
 
         return LayerDefinition.create(meshdefinition, 32, 32);
     }
@@ -50,6 +57,7 @@ public class RatModel<T extends RatEntity> extends HierarchicalModel<T> {
         {
             this.root().getAllParts().forEach(ModelPart::resetPose);
 
+            this.applyHeadRotation(netHeadYaw, headPitch);
             this.animateWalk(RatAnimations.rat_walk, limbSwing, limbSwingAmount, 2f, 2.5f);
             this.animate(entity.idleAnimationState, RatAnimations.rat_idle, ageInTicks, 1f);
         }
@@ -64,4 +72,11 @@ public class RatModel<T extends RatEntity> extends HierarchicalModel<T> {
         return controller;
     }
 
+    private void applyHeadRotation(float headYaw, float headPitch) {
+        headYaw = Mth.clamp(headYaw, -30f, 30f);
+        headPitch = Mth.clamp(headPitch, -25f, 45);
+
+        this.head.yRot = headYaw * ((float)Math.PI / 180f);
+        this.head.xRot = headPitch *  ((float)Math.PI / 180f);
+    }
 }
