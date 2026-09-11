@@ -1,6 +1,7 @@
 package com.kmssuicidepls.rsmpmod.items;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
+import com.kmssuicidepls.rsmpmod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -19,6 +20,10 @@ public class ModCreativeModeTabs {public static final DeferredRegister<CreativeM
                     .title(Component.translatable("creativetab.rsmpmod.rsmpmod"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.RAT_SPAWN_EGG);
+                        output.accept(ModItems.BLOODSTAR);
+
+                        output.accept(ModBlocks.AMALGAM_BLOCK);
+                        output.accept(ModBlocks.BLOOD_ALTER);
                     }).build());
 
 

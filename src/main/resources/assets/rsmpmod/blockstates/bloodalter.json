@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "": {
+      "facing=north": { "model": "rsmpmod:block/bloodalter" },
+      "facing=south": { "model": "rsmpmod:block/bloodalter", "y": 180 },
+      "facing=east": { "model": "rsmpmod:block/bloodalter", "y": 90 },
+      "facing=west": { "model": "rsmpmod:block/bloodalter", "y": 270 },
+      "model": "rsmpmod:block/bloodalter"
+    }
+  }
+}

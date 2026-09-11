@@ -1,6 +1,11 @@
 {
   "creativetab.rsmpmod.rsmpmod": "RSMP Mod",
 
+  "block.rsmpmod.amalgam_block": "Amalgamation",
+  "block.rsmpmod.bloodalter": "Blood Alter",
+
+  "item.rsmpmod.bloodstar": "Blood Star",
+
   "entity.rsmpmod.rat": "Rat",
   "item.rsmpmod.rat_spawn_egg": "Rat Spawn Egg"
 }

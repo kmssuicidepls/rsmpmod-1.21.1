@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "rsmpmod:item/rat_egg"
+    "layer0": "rsmpmod:item/bloodstar"
   }
 }

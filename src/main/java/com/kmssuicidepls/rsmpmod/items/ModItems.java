@@ -11,9 +11,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RsmpMod.MOD_ID);
 
+    public static final DeferredItem<Item> BLOODSTAR = ITEMS.register("bloodstar",
+            () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> RAT_SPAWN_EGG = ITEMS.register("rat_spawn_egg",
-            () -> new DeferredSpawnEggItem(ModEntities.RAT, 0x424854, 0xff82e8,
+            () -> new DeferredSpawnEggItem(ModEntities.RAT, 0xFFFFFF, 0xFFFFFF,
                     new Item.Properties()));
 
 public static void register(IEventBus eventBus) {

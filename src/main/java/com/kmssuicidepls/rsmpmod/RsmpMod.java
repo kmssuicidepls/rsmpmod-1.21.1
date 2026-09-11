@@ -1,5 +1,6 @@
 package com.kmssuicidepls.rsmpmod;
 
+import com.kmssuicidepls.rsmpmod.block.ModBlocks;
 import com.kmssuicidepls.rsmpmod.entity.ModEntities;
 import com.kmssuicidepls.rsmpmod.entity.client.RatRenderer;
 import com.kmssuicidepls.rsmpmod.items.ModCreativeModeTabs;
@@ -33,6 +34,7 @@ public class RsmpMod {
 
         modEventBus.addListener(this::commonSetup);
 
+        ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
