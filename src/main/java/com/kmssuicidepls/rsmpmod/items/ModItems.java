@@ -14,6 +14,9 @@ public class ModItems {
     public static final DeferredItem<Item> BLOODSTAR = ITEMS.register("bloodstar",
             () -> new Item(new Item.Properties()));
 
+    public static final DeferredItem<Item> RAT_CHUNK = ITEMS.register("rat_chunk",
+            () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> RAT_SPAWN_EGG = ITEMS.register("rat_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.RAT, 0xFFFFFF, 0xFFFFFF,
                     new Item.Properties()));

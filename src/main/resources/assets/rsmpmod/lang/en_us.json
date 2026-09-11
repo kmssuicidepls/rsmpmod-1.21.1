@@ -3,8 +3,10 @@
 
   "block.rsmpmod.amalgam_block": "Amalgamation",
   "block.rsmpmod.bloodalter": "Blood Alter",
+  "block.rsmpmod.flesh_anvil": "Flesh Anvil",
 
   "item.rsmpmod.bloodstar": "Blood Star",
+  "item.rsmpmod.rat_chunk": "Rat Chunk",
 
   "entity.rsmpmod.rat": "Rat",
   "item.rsmpmod.rat_spawn_egg": "Rat Spawn Egg"

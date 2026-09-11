@@ -21,9 +21,11 @@ public class ModCreativeModeTabs {public static final DeferredRegister<CreativeM
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.RAT_SPAWN_EGG);
                         output.accept(ModItems.BLOODSTAR);
+                        output.accept(ModItems.RAT_CHUNK);
 
                         output.accept(ModBlocks.AMALGAM_BLOCK);
                         output.accept(ModBlocks.BLOOD_ALTER);
+                        output.accept(ModBlocks.FLESH_ANVIL);
                     }).build());
 
 

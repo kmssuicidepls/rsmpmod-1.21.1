@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "": {
+      "facing=north": { "model": "rsmpmod:block/flesh_anvil" },
+      "facing=south": { "model": "rsmpmod:block/flesh_anvil", "y": 180 },
+      "facing=east": { "model": "rsmpmod:block/flesh_anvil", "y": 90 },
+      "facing=west": { "model": "rsmpmod:block/flesh_anvil", "y": 270 },
+      "model": "rsmpmod:block/flesh_anvil"
+    }
+  }
+}

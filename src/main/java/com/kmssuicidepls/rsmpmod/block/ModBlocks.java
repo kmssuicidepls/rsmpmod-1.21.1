@@ -1,6 +1,7 @@
 package com.kmssuicidepls.rsmpmod.block;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
+import com.kmssuicidepls.rsmpmod.block.custom.FleshAnvil;
 import com.kmssuicidepls.rsmpmod.items.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -18,15 +19,15 @@ public class ModBlocks {
             DeferredRegister.createBlocks(RsmpMod.MOD_ID);
 
     public static final DeferredBlock<Block> AMALGAM_BLOCK = registerBlock("amalgam_block",
-            () -> {
-                return new Block(BlockBehaviour.Properties.of()
-                        .strength(2f).sound(SoundType.SLIME_BLOCK));
+            () -> { return new Block(BlockBehaviour.Properties.of().strength(2f).sound(SoundType.SLIME_BLOCK));
             });
 
     public static final DeferredBlock<Block> BLOOD_ALTER = registerBlock("bloodalter",
-            () -> {
-                return new Block(BlockBehaviour.Properties.of()
-                        .strength(5, 1200.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK).noOcclusion().lightLevel((p_152692_) -> 5));
+            () -> { return new Block(BlockBehaviour.Properties.of().strength(5, 1200.0F).requiresCorrectToolForDrops().sound(SoundType.NETHERRACK).noOcclusion().lightLevel((p_152692_) -> 5));
+            });
+
+    public static final DeferredBlock<Block> FLESH_ANVIL = registerBlock("flesh_anvil",
+            () -> { return new FleshAnvil(BlockBehaviour.Properties.of().strength(3f).sound(SoundType.ANVIL).noOcclusion());
             });
 
 

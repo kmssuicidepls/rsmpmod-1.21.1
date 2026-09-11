@@ -1,0 +1,10 @@
+{
+  "values": {
+    "rsmpmod:rat_chunk": {
+      "chance": 1.0
+    },
+    "minecraft:rotten_flesh": {
+      "chance": 1.0
+    }
+  }
+}

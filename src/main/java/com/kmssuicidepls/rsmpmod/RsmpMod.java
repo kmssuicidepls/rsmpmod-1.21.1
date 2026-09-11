@@ -7,6 +7,8 @@ import com.kmssuicidepls.rsmpmod.items.ModCreativeModeTabs;
 import com.kmssuicidepls.rsmpmod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;

@@ -1,12 +1,16 @@
 package com.kmssuicidepls.rsmpmod.entity.custom;
 
+import com.kmssuicidepls.rsmpmod.RsmpMod;
 import com.kmssuicidepls.rsmpmod.entity.ModEntities;
 import com.kmssuicidepls.rsmpmod.entity.RatVariant;
 import net.minecraft.Util;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
@@ -19,6 +23,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.jetbrains.annotations.Nullable;
 
 public class RatEntity extends Animal {
@@ -118,6 +123,11 @@ public class RatEntity extends Animal {
         RatVariant variant = RatVariant.getWeightedRandomVariant(this.random);
         this.setVariant(variant);
         return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
+    @Override
+    protected ResourceKey<LootTable> getDefaultLootTable() {
+        return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(RsmpMod.MOD_ID, "entities/rat"));
     }
 
 }
