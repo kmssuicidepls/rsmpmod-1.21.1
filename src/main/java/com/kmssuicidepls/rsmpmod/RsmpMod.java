@@ -2,9 +2,11 @@ package com.kmssuicidepls.rsmpmod;
 
 import com.kmssuicidepls.rsmpmod.block.ModBlocks;
 import com.kmssuicidepls.rsmpmod.entity.ModEntities;
+import com.kmssuicidepls.rsmpmod.entity.client.JustjoRenderer;
 import com.kmssuicidepls.rsmpmod.entity.client.RatRenderer;
 import com.kmssuicidepls.rsmpmod.items.ModCreativeModeTabs;
 import com.kmssuicidepls.rsmpmod.items.ModItems;
+import com.kmssuicidepls.rsmpmod.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.Items;
@@ -40,8 +42,8 @@ public class RsmpMod {
         ModEntities.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
+        ModSounds.register(modEventBus);
 
-        // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
     }
 
@@ -59,6 +61,7 @@ public class RsmpMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.RAT.get(), RatRenderer::new);
+            EntityRenderers.register(ModEntities.JUSTJO.get(), JustjoRenderer::new);
         }
     }
 }

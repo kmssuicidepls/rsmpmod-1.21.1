@@ -20,6 +20,7 @@ public class ModCreativeModeTabs {public static final DeferredRegister<CreativeM
                     .title(Component.translatable("creativetab.rsmpmod.rsmpmod"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.RAT_SPAWN_EGG);
+                        output.accept(ModItems.JUSTJO_SPAWN_EGG);
                         output.accept(ModItems.BLOODSTAR);
                         output.accept(ModItems.RAT_CHUNK);
 

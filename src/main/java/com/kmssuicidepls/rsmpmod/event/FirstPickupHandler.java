@@ -27,7 +27,7 @@ public class FirstPickupHandler {
         CompoundTag data = player.getPersistentData();
         if (!data.getBoolean(NBT_KEY)) {
             data.putBoolean(NBT_KEY, true);
-            player.sendSystemMessage(Component.literal("Du günstige ratte"));
+            player.sendSystemMessage(Component.literal("Du günstige ratte..."));
         }
     }
 }

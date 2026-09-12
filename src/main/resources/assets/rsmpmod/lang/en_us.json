@@ -9,5 +9,7 @@
   "item.rsmpmod.rat_chunk": "Rat Chunk",
 
   "entity.rsmpmod.rat": "Rat",
-  "item.rsmpmod.rat_spawn_egg": "Rat Spawn Egg"
+  "item.rsmpmod.rat_spawn_egg": "Rat Spawn Egg",
+  "entity.rsmpmod.justjo": "The Man of the Cloth",
+  "item.rsmpmod.justjo_spawn_egg": "Cloth Spawn Egg"
 }

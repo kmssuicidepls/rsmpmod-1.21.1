@@ -1,6 +1,7 @@
 package com.kmssuicidepls.rsmpmod.entity;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
+import com.kmssuicidepls.rsmpmod.entity.custom.JustjoEntity;
 import com.kmssuicidepls.rsmpmod.entity.custom.RatEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
@@ -16,9 +17,13 @@ public class ModEntities {
 
     public static final Supplier<EntityType<RatEntity>> RAT =
             ENTITY_TYPES.register("rat", () -> EntityType.Builder.of(RatEntity::new, MobCategory.CREATURE)
-                    .sized(0.75f, 0.3f).build("rat"));
+                    .sized(0.3f, 0.3f).build("rat"));
 
-            public static void register(IEventBus eventBus) {
+    public static final Supplier<EntityType<JustjoEntity>> JUSTJO =
+            ENTITY_TYPES.register("justjo", () -> EntityType.Builder.of(JustjoEntity::new, MobCategory.MONSTER)
+                    .sized(1.5f, 2f).build("justjo"));
+
+    public static void register(IEventBus eventBus) {
                ENTITY_TYPES.register(eventBus);
             }
 }

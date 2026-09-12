@@ -1,0 +1,11 @@
+{
+  "justjo_walk": {
+    "subtitle": "sounds.rsmpmod.justjo_walk",
+    "sounds": ["rsmpmod:justjo_walk"]
+  },
+
+  "justjo_leap": {
+    "subtitle": "sounds.rsmpmod.justjo_leap",
+    "sounds": ["rsmpmod:justjo_leap"]
+  }
+}

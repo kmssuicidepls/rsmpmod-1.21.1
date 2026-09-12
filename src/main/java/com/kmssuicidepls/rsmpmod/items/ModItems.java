@@ -21,7 +21,12 @@ public class ModItems {
             () -> new DeferredSpawnEggItem(ModEntities.RAT, 0xFFFFFF, 0xFFFFFF,
                     new Item.Properties()));
 
-public static void register(IEventBus eventBus) {
+    public static final DeferredItem<Item> JUSTJO_SPAWN_EGG = ITEMS.register("justjo_spawn_egg",
+            () -> new DeferredSpawnEggItem(ModEntities.JUSTJO, 0xFFFFFF, 0xFFFFFF,
+                    new Item.Properties()));
+
+
+    public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);
 }
 }
