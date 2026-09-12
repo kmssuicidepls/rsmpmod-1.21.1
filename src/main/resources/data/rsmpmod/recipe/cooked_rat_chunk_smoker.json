@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "ingredient": {
+    "item": "rsmpmod:rat_chunk"},
+  "result": {
+    "id": "rsmpmod:cooked_rat_chunk"},
+  "experience": 0.5,
+  "cookingtime": 125
+}

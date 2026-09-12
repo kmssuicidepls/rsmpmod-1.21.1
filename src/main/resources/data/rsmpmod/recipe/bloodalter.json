@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {"item" :"rsmpmod:amalgam_block"},
+    "O": {"item" :"minecraft:obsidian"},
+    "E": {"item" :"minecraft:ender_eye"}
+  },
+  "pattern": [
+    " E ",
+    "AAA",
+    "OOO"
+  ],
+  "result": {
+    "id": "rsmpmod:bloodalter",
+    "count": 1
+  }
+}

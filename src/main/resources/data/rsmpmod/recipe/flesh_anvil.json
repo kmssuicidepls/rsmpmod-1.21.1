@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {"item" : "rsmpmod:amalgam_block"},
+    "I": {"item" :"minecraft:iron_ingot"}
+  },
+  "pattern": [
+    "AAA",
+    " I ",
+    "III"
+  ],
+  "result": {
+    "id": "rsmpmod:flesh_anvil",
+    "count": 1
+  }
+}

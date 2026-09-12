@@ -2,7 +2,7 @@ package com.kmssuicidepls.rsmpmod.block;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
 import com.kmssuicidepls.rsmpmod.block.custom.FleshAnvil;
-import com.kmssuicidepls.rsmpmod.items.ModItems;
+import com.kmssuicidepls.rsmpmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

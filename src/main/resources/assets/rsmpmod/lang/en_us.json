@@ -7,9 +7,17 @@
 
   "item.rsmpmod.bloodstar": "Blood Star",
   "item.rsmpmod.rat_chunk": "Rat Chunk",
+  "item.rsmpmod.cooked_rat_chunk": "Cooked Rat Chunk",
+  "item.rsmpmod.cooked_rat_sandwich": "Rat Sandwich",
 
   "entity.rsmpmod.rat": "Rat",
   "item.rsmpmod.rat_spawn_egg": "Rat Spawn Egg",
   "entity.rsmpmod.justjo": "The Man of the Cloth",
-  "item.rsmpmod.justjo_spawn_egg": "Cloth Spawn Egg"
+  "item.rsmpmod.justjo_spawn_egg": "Cloth Spawn Egg",
+
+
+  "painting.rsmpmod.slinky_pfp.title": "SlinkyPfp",
+  "painting.rsmpmod.slinky_pfp.author": "The Serpent",
+
+  "container.rsmpmod.flesh_anvil": "Repair & Name"
 }

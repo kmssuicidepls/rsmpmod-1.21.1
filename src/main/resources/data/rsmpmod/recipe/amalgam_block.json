@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {"item" :"rsmpmod:rat_chunk"}
+  },
+  "pattern": [
+    "RR",
+    "RR"
+  ],
+
+  "result": {
+    "id": "rsmpmod:amalgam_block",
+    "count": 1
+  }
+}

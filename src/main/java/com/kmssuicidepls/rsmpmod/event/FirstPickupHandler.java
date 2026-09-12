@@ -1,7 +1,7 @@
 package com.kmssuicidepls.rsmpmod.event;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
-import com.kmssuicidepls.rsmpmod.items.ModItems;
+import com.kmssuicidepls.rsmpmod.item.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;

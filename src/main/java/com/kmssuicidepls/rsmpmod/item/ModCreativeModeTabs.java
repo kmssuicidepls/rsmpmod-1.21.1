@@ -1,4 +1,4 @@
-package com.kmssuicidepls.rsmpmod.items;
+package com.kmssuicidepls.rsmpmod.item;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
 import com.kmssuicidepls.rsmpmod.block.ModBlocks;
@@ -23,6 +23,8 @@ public class ModCreativeModeTabs {public static final DeferredRegister<CreativeM
                         output.accept(ModItems.JUSTJO_SPAWN_EGG);
                         output.accept(ModItems.BLOODSTAR);
                         output.accept(ModItems.RAT_CHUNK);
+                        output.accept(ModItems.COOKED_RAT_CHUNK);
+                        output.accept(ModItems.COOKED_RAT_SANDWICH);
 
                         output.accept(ModBlocks.AMALGAM_BLOCK);
                         output.accept(ModBlocks.BLOOD_ALTER);

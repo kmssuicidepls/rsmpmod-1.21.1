@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "rsmpmod:cooked_rat_chunk" },
+    { "item": "minecraft:bread" }
+  ],
+  "result": {
+    "id": "rsmpmod:cooked_rat_sandwich",
+    "count": 1
+  }
+}

@@ -1,4 +1,4 @@
-package com.kmssuicidepls.rsmpmod.items;
+package com.kmssuicidepls.rsmpmod.item;
 
 import com.kmssuicidepls.rsmpmod.RsmpMod;
 import com.kmssuicidepls.rsmpmod.entity.ModEntities;
@@ -15,7 +15,13 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> RAT_CHUNK = ITEMS.register("rat_chunk",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.RAT_CHUNK)));
+
+    public static final DeferredItem<Item> COOKED_RAT_CHUNK = ITEMS.register("cooked_rat_chunk",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.COOKED_RAT_CHUNK)));
+
+    public static final DeferredItem<Item> COOKED_RAT_SANDWICH = ITEMS.register("cooked_rat_sandwich",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.COOKED_RAT_SANDWICH)));
 
     public static final DeferredItem<Item> RAT_SPAWN_EGG = ITEMS.register("rat_spawn_egg",
             () -> new DeferredSpawnEggItem(ModEntities.RAT, 0xFFFFFF, 0xFFFFFF,
